@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MerchantsController;
-use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\TransactionsController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -20,6 +20,6 @@ Route::group([
     ],
 ], function () {
     Route::resource('dashboard', DashboardController::class);
-    Route::resource('transactions', TransactionController::class);
+    Route::resource('transactions', TransactionsController::class);
     Route::resource('merchants', MerchantsController::class);
 });

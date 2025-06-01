@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Traits\Remote;
 
-class TransactionController extends Controller
+class TransactionsController extends Controller
 {
     use Remote;
 
@@ -16,6 +16,10 @@ class TransactionController extends Controller
     public function index()
     {
         $transactions = $this->getTransactions(request()->get('from_date'), request()->get('to_date'));
+
+        if (! isset($transactions->data) || empty($transactions->data)) {
+            return view('transactions.index', compact('transactions'))->with('warning', 'No transactions found.');
+        }
 
         return view('transactions.index', compact('transactions'));
     }
