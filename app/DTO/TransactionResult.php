@@ -13,8 +13,6 @@ class TransactionResult
         public readonly array $fx,
         public readonly array $merchant,
         public readonly array $transaction,
-        public readonly ?bool $refundable = null,
-        public readonly ?array $acquirer = null,
     ) {}
 
     /**
@@ -41,8 +39,6 @@ class TransactionResult
             fx: $fx,
             merchant: $merchant,
             transaction: $transaction,
-            refundable: $data[0]['refundable'] ?? null,
-            acquirer: $data[0]['acquirer'] ?? null,
         );
     }
 }
