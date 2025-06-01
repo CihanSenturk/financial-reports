@@ -18,7 +18,7 @@ class MerchantsController extends Controller
     {
         $merchant = $this->getMerchant($transaction_id);
 
-        if (! $merchant->customerInfo) {
+        if (! isset($merchant->customerInfo) || empty($merchant->customerInfo)) {
             return redirect()->route('transactions.index')->with('error', 'Merchant not found.');
         }
 
